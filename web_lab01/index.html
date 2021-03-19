@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Лаба 1 (google search)</title>
+	<meta charset="UTF-8">
+    <script type="text/javascript" src="ajax.js"></script>
+
+    <style type="text/css">
+    * 
+	{
+    	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+	.mouseOver 
+    { 
+    	background-color: darkcyan; 
+      	color: whitesmoke; 
+    }
+
+	table 
+    {
+      	width:250px;
+    }
+	</style>
+  </head>
+  <body>
+      	<form id="forma" method="post">
+			<h1>Google Search prompt</h1>
+
+			<input id="country" style="width:250px" autocomplete="off" onkeyup="KeyPress(this.value)" />
+			<input type="submit" value="Search" />
+
+			<div align="left" id="searchresults"></div>
+      	</form>
+  </body>
+</html>
