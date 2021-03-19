@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Лаба 2 (Авторизация)</title>
+		<meta charset="UTF-8">
+
+		
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	</head>
+	<body>
+
+			<h1>Авторизация</h1>
+			<form id='logform'>
+				<input type="text" name="login" placeholder="Логин">
+				<input type="password" name="password" placeholder="Пароль">
+				<button type="submit" class="login-btn">Войти</button>
+			</form>
+			</br>
+			<div id="result"></div>
+			
+			<script>
+				$(".login-btn" ).click(function(e) {
+					console.log("Попытка авторизации");
+
+					e.preventDefault();
+					let login = $('input[name="login"]').val();
+					let password = $('input[name="password"]').val();
+
+					$.ajax({
+						url: 'connect.php',
+						type: 'POST',
+						dataType: 'text',
+						data: {
+							login: login,
+							password: password
+						},
+						success: function(data) {
+							console.log.data;
+							$('#result').html(data);
+							if(data=='Авторизация прошла успешно') {
+								document.location.href = 'profile.html';
+							}
+						}
+
+					})
+					
+				});
+			</script>
+	</body>
+</html>

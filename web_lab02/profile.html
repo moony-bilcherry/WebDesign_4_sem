@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Профиль</title>
+		<meta charset="UTF-8">
+
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	</head>
+	<body>
+            <form>
+                <h1>ПРОФИЛЬ</h1>
+                <h2 id="here"></h4>
+                <a href="logout.php" class="logout">Выход</a>
+            </form>
+			
+			<script>
+                alert("hi");
+				var usname = $_SESSION['user']['username'];
+                alert(usname);
+                $('#result').html(usname);
+			</script>
+	</body>
+</html>
