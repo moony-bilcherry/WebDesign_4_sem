@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $login = $_POST['login'];
 $password = $_POST['password'];
 
@@ -17,14 +15,6 @@ $result = mysqli_query($connect, $sql);
 
 $num_rows = mysqli_num_rows($result);
 if($num_rows != 0) {
-    
-    $user = mysqli_fetch_assoc($result);
-
-    $_SESSION['user'] = [
-        "username" => $user['username'],
-        "pass" => $user['pass']
-    ];
-
     $response = [
         "status" => true
     ];
@@ -37,6 +27,4 @@ else {
     ];
     die("Неверный логин или пароль");
 }
-
-
 ?>

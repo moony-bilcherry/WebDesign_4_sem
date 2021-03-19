@@ -8,6 +8,7 @@
 		* 
 		{
 			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
 		}
 
 		</style>
@@ -17,14 +18,11 @@
             <form>
                 <h1>ПРОФИЛЬ</h1>
                 <h2 id="here"></h4>
-                <a href="logout.php" class="logout">Выход</a>
+                <a href="index.html" class="logout">Выход</a>
             </form>
 			
 			<script>
-                alert("hi");
-				var usname = $_SESSION['user']['username'];
-                alert(usname);
-                $('#result').html(usname);
+                console.log("Вход");
 			</script>
 	</body>
 </html>
