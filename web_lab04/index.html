@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 4 (анимация)</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 6px;
+        }
+        #path {
+            padding: 10px;
+            margin: auto;
+            width: 300px;
+            height: 20px;
+            display: block;
+            position: relative;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        #moving {
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: relative;
+            background-color: darkmagenta;
+            border-radius: 50%;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Анимация</h1>
+        <button id="run">Пуск</button>
+        <div id="path">
+            <div id="moving"></div>
+        </div>
+        <span id="percentage">0</span>%
+			
+		<script>
+			$("#run" ).click(function(e) {
+				console.log("Кнопка нажата");
+                var $button = $(this);
+
+            $('#path')
+                .find('#moving')
+                .animate({ left: 280 },
+                    {
+                        duration: 2500,
+                        complete: function() {
+                            $button.prop('disabled', true);
+                            $button.css("background-color", "silver");
+                        },
+                        progress: function(animation, progress) {
+                            $('#percentage').text(Math.round(progress * 100));
+                        }
+                    }
+                );
+			});
+		</script>
+    </body>
+</html>
