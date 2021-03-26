@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 7 (XML)</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #status {
+            margin: auto;
+            margin-top: 20px;
+			padding: 10px 20px;
+            width: fit-content;
+            min-width: 300px;
+            border-radius: 10px;
+            border: 3px solid darkmagenta;
+            text-align: center;
+            display: none;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Сумма 4-го, 7-го, 10-го и 14-го тэга quantity</h1>
+
+        <button id="show">Вывод</button>
+        <div id="status"><br></div>
+		<script>
+            $(document).ready(function() {
+                $("#show").click(function() {
+                    $('#status').css("display","block");
+                    let xmlContent = '';
+                    fetch('info.xml').then((response) => {
+                        response.text().then((xml) => {
+                            xmlContent = xml;
+                            let parser = new DOMParser();
+                            let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
+                            let quantity = xmlDOM.querySelectorAll('quantity');
+                            
+                            var sum = parseInt(quantity[4].innerHTML) 
+                                    + parseInt(quantity[7].innerHTML) 
+                                    + parseInt(quantity[10].innerHTML) 
+                                    + parseInt(quantity[14].innerHTML);
+
+                            $("#status").html(quantity[4].innerHTML + " + " 
+                                            + quantity[7].innerHTML + " + " 
+                                            + quantity[10].innerHTML + " + " 
+                                            + quantity[14].innerHTML + " = " + sum);
+                        });
+                    });
+
+                })
+            })
+		</script>
+    </body>
+</html>

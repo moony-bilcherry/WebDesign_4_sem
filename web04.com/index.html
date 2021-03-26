@@ -16,7 +16,7 @@
             padding: 8px 15px;
             text-align: center;
             font-size: 14pt;
-            border-radius: 6px;
+            border-radius: 10px;
         }
         #path {
             padding: 10px;
@@ -54,20 +54,20 @@
 				console.log("Кнопка нажата");
                 var $button = $(this);
 
-            $('#path')
-                .find('#moving')
-                .animate({ left: 280 },
-                    {
-                        duration: 2500,
-                        complete: function() {
-                            $button.prop('disabled', true);
-                            $button.css("background-color", "silver");
-                        },
-                        progress: function(animation, progress) {
-                            $('#percentage').text(Math.round(progress * 100));
+                $('#path')
+                    .find('#moving')
+                    .animate({ left: 280 },
+                        {
+                            duration: 2500,
+                            complete: function() {
+                                $button.prop('disabled', true);
+                                $button.css("background-color", "silver");
+                            },
+                            progress: function(animation, progress) {
+                                $('#percentage').text(Math.round(progress * 100));
+                            }
                         }
-                    }
-                );
+                    );
 			});
 		</script>
     </body>

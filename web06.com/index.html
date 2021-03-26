@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 6 (JSON)</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #message {
+            width: 300px;
+            height: 100px;
+            text-align: left;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 12pt;
+            border-radius: 10px;
+            resize: none;
+        }
+        #status {
+            margin: auto;
+            margin-top: 20px;
+			padding: 10px 20px;
+            width: fit-content;
+            min-width: 300px;
+            border-radius: 10px;
+            border: 3px solid darkmagenta;
+            text-align: center;
+            display: none;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Преобразование JSON в значение и массив</h1>
+        <div id="info">
+            <textarea id="message">[ 457, 2457, 4572, 1973, 246 ]</textarea>
+        </div>
+        <button id="arr">Массив</button>
+        <button id="value">Значение</button>
+        <div id="status"><br></div>
+		<script>
+            $(document).ready(function() {
+                //[ "Ford", "BMW", "Audi", "Fiat", "KIA" ]
+                $("#arr").click(function() {
+                    $('#status').css("display","block");
+                    var str = $("#message").val();
+
+                    console.log("------ array");
+                    console.log("incoming info: " + str);
+
+                    myArr = JSON.parse(str);
+                    console.log("type of myArr: " + typeof(myArr));
+                    console.log(myArr);
+                    
+                    $("#status").html("ОТВЕТ: <br>");
+                    $("#status").append(myArr + "<br>typeof: " + typeof(myArr));
+
+                    console.log("type of myArr[0]: " + typeof(myArr[0]));
+                    $("#status").append("<br>Наибольшее число: " + Math.max.apply(null, myArr));
+
+                    console.log(Math.max.apply(null, myArr));
+                })
+                
+                $("#value").click(function() {
+                    $('#status').css("display","block");
+                    var str = $("#message").val();
+
+                    console.log("------ value");
+                    console.log("incoming info: " + str);
+
+                    myVal = parseInt(JSON.parse(str));
+                    console.log(myVal);
+                    console.log("type of myVal: " + typeof(myVal));
+                    
+                    $("#status").html("ОТВЕТ: <br>");
+                    $("#status").append(myVal + "<br>typeof: " + typeof(myVal));
+                })
+            })
+		</script>
+    </body>
+</html>

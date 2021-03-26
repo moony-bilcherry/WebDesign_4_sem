@@ -54,6 +54,7 @@ function KeyPress(term)
                 tblCell = document.createElement("td");
                 //задаем атрибуты и функции ячеек
                 tblCell.onmouseover = function(){this.className='mouseOver';};
+                tblCell.onmouseout = function(){this.className='mouseOut';};
                 tblCell.setAttribute("border", "0");
                 tblCell.onclick = function(){
                     Replace(this);
