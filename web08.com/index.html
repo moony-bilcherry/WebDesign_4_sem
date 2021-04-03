@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 8</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #message {
+            width: 300px;
+            height: 200px;
+            text-align: left;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 12pt;
+            border-radius: 10px;
+            resize: none;
+        }
+        #status {
+            margin: auto;
+            margin-top: 20px;
+			padding: 10px 20px;
+            width: fit-content;
+            min-width: 300px;
+            border-radius: 10px;
+            border: 3px solid darkmagenta;
+            text-align: center;
+            display: none;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Ассоциативный массив</h1>
+        <h4>Поиск ключей с одинаковым значением привязанных к ним данных</h4>
+        <div id="info">
+            <textarea id="message">[{"id":100, "title":"философский камень"},{"id":101, "title":"тайная комната"},{"id":102, "title":"узник азкабана"},{"id":4,"title":"кубок огня"},{"id":100, "title":"философский камень"},{"id":102, "title":"узник азкабана"}]</textarea>
+        </div>
+        <button id="search">Поиск</button>
+        <div id="status"><br></div>
+		<script>
+            /*Создайте ассоциативный массив с использованием JSON. 
+            Напишите функцию нахождения ключей с одинаковым значением привязанных к ним данных. */
+            $(document).ready(function() {
+                $("#search").click(function() {
+                    $('#status').css("display","block");
+                    $("#status").html("ОТВЕТ: <br>");
+
+                    var str = $("#message").val();
+                    console.log("incoming info: " + str);
+
+                    myArr = JSON.parse(str);
+                    console.log(myArr);
+
+                    /*for(var i = 0; i < myArr.length; i++) {
+                        for(var j = i; j < myArr.length; j++) {
+                            if(myArr[i].id == myArr[j].id && j != i) {
+                                console.log("Найден дубликат: " + i + " и " + j);
+                                $("#status").append("Найден дубликат: " + i + " и " + j + "</br>");
+                                break;
+                            }
+                        }
+                    }*/
+
+                    var combinedItems = myArr.reduce(function(arr, item) {
+                        var found = false;
+                        for (var i = 0; i < arr.length; i++) {
+                            if (arr[i].id === item.id) {
+                                found = true;
+                                arr[i].count++;
+                            }
+                        }
+                        if (!found) {
+                            item.count = 1;
+                            arr.push(item);
+                        }
+                        return arr;
+                    }, [])
+                    console.log(combinedItems);
+                    
+                    for(var i = 0; i < combinedItems.length; i++) {
+                        if(combinedItems[i].count > 1) {
+                            console.log("Ключей id со значением " + combinedItems[i].id + ": " + combinedItems[i].count);
+                            $("#status").append("Ключей id со значением " + combinedItems[i].id + ": " + combinedItems[i].count + "</br>");
+                        }
+                    }
+                })
+            })
+		</script>
+    </body>
+</html>
