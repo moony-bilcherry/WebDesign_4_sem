@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 9 (Encode/Decode)</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #status {
+            margin: auto;
+            margin-top: 20px;
+			padding: 10px 20px;
+            width: fit-content;
+            min-width: 300px;
+            border-radius: 10px;
+            border: 3px solid darkmagenta;
+            text-align: center;
+            display: none;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>JSON encode/decode</h1>
+        <h4>Массив дробных чисел зашифровать, перевести в 16 С/С, расшифровать</h4>
+        <button id="search">Пуск</button>
+        <div id="status"><br></div>
+		<script>
+            /* Массив из чисел типа double или long. Зашифруйте его перевев все числа в 16с/с. 
+            Выведите результат на страницу. Расшифруйте массив. Выведите результат на страницу.  */
+            $(document).ready(function() {
+                $("#search").click(function() {
+                    $('#status').css("display","block");
+                    $("#status").html("ОТВЕТ: <br>");
+                    
+                    var arr = [1.32,2.43,3.54,4.65,5.76];
+                    console.log(arr);
+                    $("#status").append("Исходный массив: <br>" + arr + "<br>");
+
+                    var hex_arr = [];
+                    for (var i = 0; i < arr.length; i++) {
+                        hex_arr.push(arr[i].toString(16));
+                    }
+                    console.log(hex_arr);
+                    $("#status").append("Массив в 16 С/С: <br>" + hex_arr + "<br>");
+
+                    // To encode an object (This produces a string)
+                    var json_str = JSON.stringify(hex_arr); 
+                    console.log(json_str);
+                    $("#status").append("Зашифрованный: <br>" + json_str + "<br>");
+
+                    // To decode (This produces an object)
+                    var obj = JSON.parse(json_str);
+                    console.log(obj);
+                    $("#status").append("Расшифрованный: <br>" + obj + "<br>");
+
+                    var arr_fin = [];
+                    for(var i=0;i<obj.length;i++){
+                        arr_fin.push(parseFloat(obj[i],16));
+                    }
+                    console.log(arr_fin);
+                    $("#status").append("Парс в float: <br>" + arr_fin + "<br>");
+                })
+            })
+		</script>
+    </body>
+</html>
