@@ -59,7 +59,7 @@
 		<script>
             // Реализуйте проект для проверки изменения информации. Используйте Comet.
 
-            $("#send").click(function(){
+                $("#send").click(function(){
                     var text = $("#message").val();
                     $("#message").val("");  
                     var datel = new Date();
@@ -86,7 +86,7 @@
                         $('#status').css("display","block");
                         $("#status").html("Изменено в " + localtime + "<br>" + msg.data.text);
                     });
-                    ;
+                    
                     CometServer().subscription("#web_lab5", function(p)     // подписка на отчет о доставке в канал "web_lab5"
                     {
                         console.log(p);
