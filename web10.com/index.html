@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лаба 10 (месяцы)</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+		* 
+		{
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			text-align: center;
+		}
+        button {
+            background-color:rgb(243, 180, 44);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 14pt;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #status {
+            margin: auto;
+            margin-top: 20px;
+			padding: 10px 20px;
+            width: fit-content;
+            min-width: 300px;
+            border-radius: 10px;
+            border: 3px solid darkmagenta;
+            text-align: center;
+            display: none;
+        }
+		</style>
+		<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    </head>
+    <body>
+        <h1>Массив с месяцами</h1>
+        <h4>Удалить зимние без изменения нумерации</h4>
+        <button id="execute">Пуск</button>
+        <div id="status"><br></div>
+		<script>
+            /* Массив из чисел типа double или long. Зашифруйте его перевев все числа в 16с/с. 
+            Выведите результат на страницу. Расшифруйте массив. Выведите результат на страницу.  */
+            $(document).ready(function() {
+                $("#execute").click(function() {
+                    $('#status').css("display","block");
+                    $("#status").html("ОТВЕТ: <br>");
+
+                    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+					$("#status").append("Исходный массив:<br>");
+                    $("#status").append(months.toString());
+					console.log(months);
+
+					delete months[0];
+					delete months[1];
+					delete months[11];
+					$("#status").append("<br>После удаления:<br>");
+					$("#status").append(months.toString());
+					console.log(months);
+                })
+            })
+		</script>
+    </body>
+</html>
