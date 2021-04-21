@@ -3,77 +3,63 @@
     <head>
         <title>EX 4 (login)</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <script src = "http://code.jquery.com/jquery-latest.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        
     </head>
     <body>
         <h1 class="text-center">Вход в личный кабинет</h1>
-        <div class="container bg-warning">
-            <div class="row">
-                <div class="container-lg bg-danger mx-auto">
-                    <div class="form-group">
-                        <label for="login">Логин: </label>
-                        <input type="login" class="form-control" id="login" placeholder="Введите логин">
-                        <div class="w-100"></div>
-                        <label for="password">Пароль: </label>
-                        <input type="password" class="form-control" id="password" placeholder="Введите пароль">
-                        <label><input type="checkbox">Забыли пароль?</input></label>
-                        <p class="help-block">Пример строки с подсказкой</p>
-                        <button  id="enter" type="button" class="btn btn-info mx-auto">Вход</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container bg-info">
-            <div class="row">
-				<div class="col-sm">
-					One of three columns
+        <div style="max-width: 30rem; margin: 0 auto;">
+			<div class="container-fluid bg-danger mx-auto">
+				<div class="form-group">
+					<label for="login">Логин: </label>
+					<input type="login" class="form-control" id="login" placeholder="Введите логин">
+					<div class="w-100"></div>
+					<label for="password">Пароль: </label>
+					<input type="password" class="form-control" id="password" placeholder="Введите пароль">
+					<label><input type="checkbox">Забыли пароль?</input></label>
+					<p class="help-block">Пример строки с подсказкой</p>
+					<button  id="enter" type="button" class="btn btn-info mx-auto">Вход</button>
 				</div>
-				<div class="col-sm">
-					One of three columns
+			</div>   
+		</div> 
+		<hr>
+		<div>
+			<div class="container-fluid bg-warning h-100 w-100" style="max-width: 30rem;">
+				<div class="form-group">
+					<div class="row p-2">				
+						<div class="col-sm-3 text-center">
+							<label for="login">Логин:</label>
+						</div>
+						<div class="col-sm">
+							<input type="login" class="form-control" id="login" placeholder="Введите логин">
+						</div>
+						<div class="w-100"></div>
+						<div class="col-sm-3 text-center">
+							<label for="pass">Пароль:</label>
+						</div>
+						<div class="col-sm">
+							<input type="password" class="form-control" id="pass" placeholder="Введите пароль">
+						</div>
+						<div class="w-100"></div>
+						<div class="col text-center p-2">
+							<div class="form-check">
+								<input type="checkbox" class="form-check-input" id="exampleCheck1">
+								<label class="form-check-label" for="exampleCheck1">Забыли пароль?</label>
+							  </div>
+						</div>
+						<div class="w-100"></div>
+						<div class="col">
+							<button type="submit" class="btn btn-primary mx-auto d-block">Войти</button>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm">
-					One of three columns
-				</div>
-            </div>
-          	<div class="row">
-                <div class="col-2">
-                  	1 of 2
-                </div>
-                <div class="col">
-                  	2 of 2
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-2">
-                  	1 of 3
-                </div>
-                <div class="col">
-                  	2 of 3
-                </div>
-                <div class="col">
-                  	3 of 3
-                </div>
-            </div>
-        </div>
-        <div class="container bg-warning">
-			<div class="row">
-				<div class="col-sm-3 bg-dark text-light">Column</div>
-				<div class="col-sm bg-light text-dark">Column</div>
-				<div class="w-100"></div>
-				<div class="col">Column</div>
-				<div class="col">Column</div>
 			</div>
 		</div>
-		<div class="container-sm border">.container-sm</div>
-		<div class="container-md mt-3 border">.container-md</div>
-		<div class="container-lg mt-3 border">.container-lg</div>
-        <div class="container-xl mt-3 border">.container-xl</div>
-        <div class="container-sm">100% wide until small breakpoint</div>
-        <div class="container-md">100% wide until medium breakpoint</div>
-        <div class="container-lg">100% wide until large breakpoint</div>
-        <div class="container-xl">100% wide until extra large breakpoint</div>
     </body>
 </html>
